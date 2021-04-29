@@ -4,7 +4,7 @@ namespace App\Services;
 
 class PalindromeService
 {
-    private function strrev_enc($string)
+    private static function strrev_enc($string)
     {
 	    $string = iconv('utf-8', 'windows-1251', $string);
 
@@ -15,7 +15,7 @@ class PalindromeService
         return $string;
     }
     
-    public function isPalindrome($string)
+    public static function isPalindrome($string)
     {
         $modifiedString = str_replace(' ', '', $string);
         $modifiedString = str_replace('.', '', $modifiedString);
@@ -26,10 +26,10 @@ class PalindromeService
 
         $modifiedString = mb_strtolower($modifiedString);
 
-        if ($modifiedString == $this->strrev_enc($modifiedString)){
-            return 'Строка является палиндромом!';
+        if ($modifiedString == PalindromeService::strrev_enc($modifiedString)){
+            return true;
         } else {
-            return 'Строка не  является палиндромом!';
+            return false;
         }
     }
 }
