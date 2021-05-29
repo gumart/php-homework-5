@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\{PalindromeController, MyIPController};
+use App\Http\Controllers\{PalindromeController, MyIPController, StudentController, AuthorBookController, UserController};
 
 /*
 |--------------------------------------------------------------------------
@@ -25,3 +25,11 @@ Route::get('/phpinfo/', function () {
 Route::get('/palindrome/', [PalindromeController::class, 'isPalindrome'])->middleware('ipValidation');
 
 Route::get('/myip/', [MyIPController::class, 'getMyIP']);
+
+Route::get('/createstudent/', [StudentController::class, 'createStudent']);
+
+Route::get('/getstudents/', [StudentController::class, 'getStudents']);
+
+Route::get('/getauthorbooks/', [AuthorBookController::class, 'getAuthorBook']);
+
+Route::get('/getuser/', [UserController::class, 'getUser']);
